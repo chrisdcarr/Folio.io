@@ -1,31 +1,51 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Christopher's Portfolio</title>
-	<style type="text/css">
-		body
-		{
-			background-color: lightblue;
-		}
-		.main
-		{
-			width: 90%;
-			background-color: darkgrey;
-			margin:0px auto;
-			height: 100vh;
-		}
-		.main_header
-		{
-			width: 100%
-		}
-	</style>
-</head>
-<body>
-	<div class="main">
-		<div class="main_header">
-			<h1>Portfolio</h1>
-			<h2>Christopher Carrington</h2>
-		</div>
-	</div>
-</body>
-</html>
+    <head>
+        <style>
+            .pokemon-card
+            {
+                width:200px;
+                margin: 20px 30px;
+                display: inline-block;
+            }
+
+            .pokemon-card img 
+            {
+                max-width: 150px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div>
+            <h1>Pokedex</h1>
+            <h3>Select view type</h3>
+            <div class="Nav">
+                
+                <button class="nav">Default</button>
+               
+                <button class="ViewType">Standard</button> 
+                
+                <button class="ViewType">By Type</button>
+                
+                <button class="ViewType">By Weight Classes</button>
+                
+            </div>
+        </div>
+        <!--
+             <div id="Which Pokemon">
+            <form action="">
+                <input id ="pokemon_number" type="text" value="1"> 
+                <input id="enter" type="button" value="Enter" >
+            </form>
+            
+            </div>
+        -->
+       
+        <div id="pokemon">
+
+        </div>
+        <script src="main.js">
+
+        </script>
+    </body>
