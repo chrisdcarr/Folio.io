@@ -48,7 +48,7 @@ async function GetDefaultView()
 
     
     //console.log(list_of_pokemon[5].name);
-    return list_of_pokemon;
+    //return list_of_pokemon;
 }
 
 //function takes long because of data loading time
