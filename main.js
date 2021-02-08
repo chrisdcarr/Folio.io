@@ -56,7 +56,7 @@ function DisplayPokemon(pokemon)
                 
                 <h2>${pokemon.id}: ${pokemon.name}</h2>
                 <!--<img src="${pokemon.sprites.front_default}">-->
-                <img src="https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png">
+                <div class="pokeimage"><img src="https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png"></div>
                 <p>Type:
                 ${pokemon.types.length==1?pokemon.types[0].type['name']:
                 pokemon.types[0].type['name']+" , "+pokemon.types[1].type['name']
