@@ -3,10 +3,11 @@ document.addEventListener("DOMContentLoaded",async()=>{
     //get when a data view type has been selected
     const button = document.getElementsByClassName("ViewType");
     
-    let poke_list = [];
+    //let poke_list = [];
     //default show the numerically listed pokemon gen1
-    poke_list= await GetDefaultView();
-    DisplayPokemon(poke_list);
+    //poke_list=
+     await GetDefaultView();
+    //DisplayPokemon(poke_list);
 
     
 })
@@ -32,11 +33,13 @@ async function GetDefaultView()
     try {
 
         //list_of_pokemon = 
-        for(i=1;i<=10;i++)
+        for(i=1;i<=150;i++)
         {
             cur_pokemon = await GetPokemon(i);
+            console.log(cur_pokemon);
             //list_of_pokemon.push(cur_pokemon);
             DisplayPokemon(cur_pokemon);
+            
         }
     }
     //if an error occurs display it in the console
@@ -93,7 +96,7 @@ function DisplayPokemon(pokemon)
 {
     
         //console.log(pokemon_list[i].name)
-        //the code below would take too long
+        const pokemon_container = document.getElementById("pokemon");
         const pokemonElement = document.createElement('div');
         pokemonElement.classList.add('pokemon-card');
 
@@ -103,17 +106,18 @@ function DisplayPokemon(pokemon)
                 <h2>${pokemon.id}: ${pokemon.name}</h2>
                 <!--<img src="${pokemon.sprites.front_default}">-->
                 <img src="https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png">
-                
                 <p>Type:
                 ${pokemon.types.length==1?pokemon.types[0].type['name']:
-                pokemon.types[0].type['name']+" , "+pokemon[i].types[1].type['name']
+                pokemon.types[0].type['name']+" , "+pokemon.types[1].type['name']
                 }
                 </p>
+
+                
             </div>
             
         
         `
-
+        
         //console.log(pokemon_list[i].types[0].type['name']);
 
         pokemonElement.innerHTML = pokemonInnerHTML;
