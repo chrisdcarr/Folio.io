@@ -2,11 +2,9 @@ document.addEventListener("DOMContentLoaded",async()=>{
 
     //get when a data view type has been selected
     //const button = document.getElementsByClassName("ViewType");
-  
-    await GetDefaultView();
+     //await GetDefaultView();
 
 })
-
 
 async function GetPokemon(id)
 {
@@ -23,15 +21,16 @@ async function GetDefaultView()
 {
     //try to gain the data
     try {
-
-        for(i=1;i<=15;i++)
+        //multi dimensional array 0=>types 1=>stats
+        let types = [[],[]]
+        for(i=1;i<=50;i++)
         {
             cur_pokemon = await GetPokemon(i);
             //console.log(cur_pokemon);
             DisplayPokemon(cur_pokemon);
-
-            types = StoreTypes(types,cur_pokemon.types);
+            GetTypes(types,cur_pokemon.types)
         }
+        console.log(types)
     }
     //if an error occurs display it in the console
     catch (e)
@@ -40,7 +39,6 @@ async function GetDefaultView()
         console.log(e);
     }
 
-    return types;
     
 }
 
