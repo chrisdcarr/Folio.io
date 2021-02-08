@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
         <style>
             .pokemon-card
             {
@@ -13,14 +14,21 @@
             {
                 max-width: 150px;
             }
+
+            #myChart
+            {
+                max-height: 300px;
+                max-width: 400px;
+            }
         </style>
     </head>
     <body>
 
         <div>
             <h1>Pokedex</h1>
-            <h3>Select view type</h3>
-            <!--<div class="Nav">
+            <!--
+                <h3>Select view type</h3>
+            <div class="Nav">
                 
                 <button class="nav">Default</button>
                
@@ -33,15 +41,7 @@
             </div>-->
             
         </div>
-        <!--
-             <div id="Which Pokemon">
-            <form action="">
-                <input id ="pokemon_number" type="text" value="1"> 
-                <input id="enter" type="button" value="Enter" >
-            </form>
-            
-            </div>
-        -->
+        <canvas id="myChart" width="400" height="300"></canvas>
        
         <div id="pokemon">
 
@@ -49,4 +49,5 @@
         <script src="main.js">
 
         </script>
+        <script src="chart.js"></script>
     </body>
