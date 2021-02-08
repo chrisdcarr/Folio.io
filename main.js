@@ -22,15 +22,15 @@ async function GetDefaultView()
     //try to gain the data
     try {
         //multi dimensional array 0=>types 1=>stats
-        let types = [[],[]]
+        let pokemon_types = {}
         for(i=1;i<=50;i++)
         {
             cur_pokemon = await GetPokemon(i);
             //console.log(cur_pokemon);
             DisplayPokemon(cur_pokemon);
-            GetTypes(types,cur_pokemon.types)
+            pokemon_types = GetTypes(pokemon_types,cur_pokemon.types,cur_pokemon)
         }
-        console.log(types)
+        console.log(pokemon_types)
     }
     //if an error occurs display it in the console
     catch (e)

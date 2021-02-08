@@ -14,9 +14,10 @@ async function chartIt()
         type: 'line',
         data: {
             labels: xlabels,
+            
             datasets: [{
                 label: xlabels,
-                data: [12, 19, 3, 5, 2, 3],
+                data: ylabels,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -50,63 +51,75 @@ async function chartIt()
 }
 
 let xlabels = [];
+let ylabels = [];
 
-
-function GetTypes(typearr,typeData)
+function GetTypes(typearr,typeData,pokemon)
 {
-
     //if array empty then push 
-    if(typearr[0].length==0)
+    if(Object.keys(typearr).length==0)
     {
+
+        //if pokemon has only one type
         if(typeData.length==1)
         {
-            typearr[0].push(typeData[0].type.name);
-            typearr[1].push(1);
+            typearr.typeData[0].type.name = 1;
         }
+            
+        //dual type pokemon
         else
         {
-            typearr[0].push(typeData[0].type['name']);
-            typearr[1].push(1);
-            typearr[0].push(typeData[1].type['name']);
-            typearr[1].push(1)
+            typearr[typeData[0].type.name] = 1;
+             typearr[typeData[1].type.name] = 0;
         }
 
     }
     else{
-
+        
+        //
         if(typeData.length==1)
-        {
-            if(typearr[0].includes(typeData[0].type.name))
+        { 
+            if(!(typeData[0].type.name in typearr))
             {
-                
-            }else{
-                typearr[0].push(typeData[0].type.name);
+                typearr[typeData[0].type.name] = 1;
             }
+            else 
+            {
+                //increment type count
+                typearr[typeData[0].type.name] +=1;
+            }
+            
 
+        }
+        else{
+            if(!(typeData[0].type.name in typearr))
+            { 
+                typearr[typeData[0].type.name] = 1;
+
+            }
+            else 
+            {
+                //increment type count
+                typearr[typeData[0].type.name] +=1;
+            }
+            if(!(typeData[1].type.name in typearr))
+            {
+                typearr[typeData[1].type.name] = 0;
+            }
             
         }
-        else
-        {
-            if(typearr[0].includes(typeData[0].type.name))
-            {
-                //typearr[1][typearr[0].findIndex(typeData[0].type.name)]++;
-            }else{
-                typearr[0].push(typeData[0].type.name);
-            }
 
-            if(typearr[0].includes(typeData[1].type.name))
-            {
-             
-            }else{
-                typearr[0].push(typeData[1].type.name);
-            }
-        }
+       
+     
+
     }
 
     //sends and overides data in arr 
     //StoreTypes(typearr);
-    //return typearr;
-    xlabels = typearr
+    xlabels = Object.keys(typearr)
+    ylabels = Object.values(typearr)
+    return typearr;
+
+    
 
 
 }
